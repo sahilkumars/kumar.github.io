@@ -1,0 +1,44 @@
+<html>
+<head>
+  <link href="https://vjs.zencdn.net/5.10.8/video-js.css" rel="stylesheet">
+  <link href="https://kmoskwiak.github.io/videojs-resolution-switcher/node_modules/videojs-resolution-switcher/lib/videojs-resolution-switcher.css" rel="stylesheet">
+  <!-- If you'd like to support IE8 -->
+  <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+</head>
+
+<body>
+  <video id="player" class="video-js vjs-default-skin"
+         controls
+         preload="none"
+         autoplay
+         loop
+         muted
+         width="640" height="360"
+         poster="https://vjs.zencdn.net/v/oceans.png">
+  </video>
+  <script>
+  var player = videojs('player', {
+  plugins: {
+    videoJsResolutionSwitcher: {
+      default: 'low',
+      dynamicLabel: true
+    }
+  }
+});
+player.updateSrc([
+  {
+    src: 'https://vjs.zencdn.net/v/oceans.mp4',
+    type: 'video/mp4',
+    res: 480,
+    label: 'SD'
+  },
+  {
+    src: 'https://vjs.zencdn.net/v/oceans.mp4',
+    type: 'video/mp4',
+    res: 720,
+    label: 'HD'
+  },
+])
+  </script>
+</body>
+</html>
